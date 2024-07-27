@@ -84,7 +84,7 @@ cd /root
 read -rp "masukan nama file: " -e user
 sub=$user`</dev/urandom tr -dc A-Z0-9 | head -c4`
 IP=$(wget -qO- ipinfo.io/ip);
-date=$(date +"%Y-No such file or directory-0")
+date=$(date +"%Y-%m-%d")
 domain=$(cat /etc/xray/domain)
 ISP=$(cat /usr/local/etc/xray/org)
 link="http://${IP}:81/shc-$sub.zip"  # Menggunakan IP VPS
