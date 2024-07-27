@@ -27,31 +27,9 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 green() { echo -e "\\033[32;1m${*}\\033[0m"; }
 red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-# Link Installation
-link="https://raw.githubusercontent.com/arivpnstores/ENC-V3/main/"
-clear
-#License Validation
-license1=$(cat /usr/local/etc/aridata/license)
-license2=$(curl -sS ${link}/aridata/license | awk '{print $3}' | grep $license1)
-if [ $license1 = $license2 ]; then
-echo -e "\e[32mLicense Validating Successful\e[0m"
-else
-clear
-echo -e "\e[31mLicense Denied\e[0m";
-exit 0
-fi
-#License Expiry
-today=$(date -d +1day +%Y-No such file or directory-0)
-exp=$(curl -sS ${link}/license | grep $license1 | awk '{print $2}')
-	if [[ $exp < $today ]]; then
-		Exp2="\033[1;31mDenied, the License has been EXPIRED\033[0m"
-		exit 0
-    else
-    Exp2="\033[1;32mGranted\033[0m"
-	fi
 clear
 
-figlet SANS
+figlet ARI
 figlet Script
 figlet Encryptor
 

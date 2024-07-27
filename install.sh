@@ -43,38 +43,9 @@ function line_tengah() {
 echo -e "   ${CYAN}────────────────────────────────────────${p}"
 }
 clear
-
-# Link Instalasi
+# Link Installation
 link="https://raw.githubusercontent.com/arivpnstores/ENC-V3/main/"
-mkdir /usr/local/etc/aridata
-apt install curl -y
-clear
-# License
-line_atas
-echo -e "  ${gb}       Validating License            \E[0m"
-line_bawah
-read -rp "Input the license : " -e lcns
-    if [ -z $lcns ]; then
-        echo -e "Empty License, Aborting Installations"
-        exit 0
-    else
-        echo -e "License Added"
-        echo "$lcns" > /usr/local/etc/aridata/license
-fi
-# Validating License
-license1=$(cat /usr/local/etc/aridata/license)
-license2=$(curl -sS ${link}/aridata/license | awk '{print $3}' | grep $license1)
-if [ $license1 = $license2 ]; then
-echo -e "\e[32mLicense Validating Successful\e[0m"
-else
-echo -e "\e[31mLicense Denied\e[0m";
-exit 0
-fi
-# Client Data
-Name=$(curl -sS ${link}/aridata/license | grep $license1 | awk '{print $1}')
-echo "$Name" > /usr/local/etc/aridata/client
-client=$(cat /usr/local/etc/aridata/client)
-clear
+
 line_atas
 echo -e "  ${gb}       Installation Started          \E[0m"
 line_bawah

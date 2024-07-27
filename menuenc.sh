@@ -49,39 +49,6 @@ clear
 # Link Installation
 link="https://raw.githubusercontent.com/arivpnstores/ENC-V3/main/"
 
-# License Validation
-license1=$(cat /usr/local/etc/aridata/license)
-license2=$(curl -sS ${link}/aridata/license | awk '{print $3}' | grep $license1)
-if [ $license1 = $license2 ]; then
-echo -e "\e[32mLicense Validating Successfull\e[0m";
-else
-clear
-echo -e "\e[31mLicense Invalid\e[0m";
-fi
-sleep 2
-# Expired License
-today=$(date -d +1day +%Y-%m-%d)
-exp=$(curl -sS ${link}/aridata/license | grep $license1 | awk '{print $2}')
-	if [[ $exp < $today ]]; then
-		Exp2="\033[1;31mExpired\033[0m"
-    else
-    Exp2=$(curl -sS ${link}/aridata/license | grep $license1 | awk '{print $2}')
-	fi
-d1=$(date -d "$exp" +%s)
-d2=$(date -d "$today" +%s)
-dayexp=$(( (d1 - d2) / 86400 ))
-# Status License
-exp=$(curl -sS ${link}/aridata/license | grep $license1 | awk '{print $2}')
-	if [[ $exp < $today ]]; then
-		statuslcns="\033[1;31mINVALID\033[0m"
-    else
-    statuslcns="\033[1;32mACTIVE\033[0m"
-	fi
-# Client Data
-Name=$(curl -sS ${link}/aridata/license | grep $license1 | awk '{print $1}')
-echo "$Name" > /usr/local/etc/aridata/client
-client=$(cat /usr/local/etc/aridata/client)
-
 clear
 line_atas
 echo -e "${CYAN}  ${NC}${g}       .::.${NC}${p} PANEL ENC SHC ${g}.::.  $NC"
