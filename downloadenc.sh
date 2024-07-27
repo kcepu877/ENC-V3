@@ -89,7 +89,6 @@ domain=$(cat /etc/xray/domain)
 ISP=$(cat /usr/local/etc/xray/org)
 link="http://${IP}:81/shc-$sub.zip"  # Menggunakan IP VPS
 zip -r shc-$sub.zip results > /dev/null 2>&1
-rm -rf results
 mv /root/shc-$sub.zip /var/www/html/
 green "Successfully"
 clear
