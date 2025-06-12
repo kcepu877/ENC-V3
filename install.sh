@@ -69,7 +69,7 @@ checking_sc() {
     exit
   fi
 }
-#checking_sc
+checking_sc
 clear
 line_atas
 echo -e "  ${gb}       Installation Started          \E[0m"
