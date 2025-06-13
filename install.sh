@@ -45,13 +45,13 @@ echo -e "   ${CYAN}────────────────────�
 clear
 
 # Link Instalasi
-link="https://raw.githubusercontent.com/arivpnstores/ENC-V3/main/"
+link="https://raw.githubusercontent.com/kcepu877/ENC-V3/main/"
 apt install curl -y
 clear
 ipsaya=$(curl -sS ipv4.icanhazip.com)
 data_server=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 date_list=$(date +"%Y-%m-%d" -d "$data_server")
-data_ip="https://raw.githubusercontent.com/arivpnstores/izin/main/ip-admin"
+data_ip="https://raw.githubusercontent.com/kcepu877/izin/main/ip-admin"
 checking_sc() {
   useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
   if [[ $date_list < $useexp ]]; then
